@@ -1,0 +1,5 @@
+﻿{
+  "DataProvider": "sqlserver",
+  "DataConnectionString": "Data Source=172.18.5.11;Initial Catalog=EDO_store_nopCommerce;Integrated Security=False;Persist Security Info=False;User ID=sa;Password=Easy35SQL",
+  "RawDataSettings": {}
+}
