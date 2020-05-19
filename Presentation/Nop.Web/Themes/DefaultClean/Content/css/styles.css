@@ -467,7 +467,7 @@ label, label + * {
     white-space: nowrap;
 }
 .cart td.quantity input {
-    width: 50px;
+    width: 80px;
     text-align: center;
 }
 .cart td.subtotal,
@@ -2031,7 +2031,7 @@ label, label + * {
 }
 .overview .qty-input,
 .variant-overview .qty-input {
-	width: 45px;
+	width: 90px;
     height: 43px;
 	padding: 0 12px;
 	text-align: center;

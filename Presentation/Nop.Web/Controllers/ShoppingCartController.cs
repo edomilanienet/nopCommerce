@@ -897,11 +897,11 @@ namespace Nop.Web.Controllers
             }
 
             //quantity
-            var quantity = 1;
+            decimal quantity = 1;
             foreach (var formKey in form.Keys)
                 if (formKey.Equals($"addtocart_{productId}.EnteredQuantity", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    int.TryParse(form[formKey], out quantity);
+                    decimal.TryParse(form[formKey], out quantity);
                     break;
                 }
 
