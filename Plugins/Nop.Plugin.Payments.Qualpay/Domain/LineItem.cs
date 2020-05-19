@@ -11,7 +11,7 @@ namespace Nop.Plugin.Payments.Qualpay.Domain
         /// Gets or sets the count of items 
         /// </summary>
         [JsonProperty(PropertyName = "quantity")]
-        public int? Quantity { get; set; }
+        public decimal? Quantity { get; set; }
 
         /// <summary>
         /// Gets or sets the description of item

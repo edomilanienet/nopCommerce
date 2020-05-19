@@ -250,9 +250,9 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public IList<SelectListItem> AvailableWarehouses { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.StockQuantity")]
-        public int StockQuantity { get; set; }
+        public decimal StockQuantity { get; set; }
 
-        public int LastStockQuantity { get; set; }
+        public decimal LastStockQuantity { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.StockQuantity")]
         public string StockQuantityStr { get; set; }
@@ -264,13 +264,13 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public bool DisplayStockQuantity { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.MinStockQuantity")]
-        public int MinStockQuantity { get; set; }
+        public decimal MinStockQuantity { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.LowStockActivity")]
         public int LowStockActivityId { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.NotifyAdminForQuantityBelow")]
-        public int NotifyAdminForQuantityBelow { get; set; }
+        public decimal NotifyAdminForQuantityBelow { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.BackorderMode")]
         public int BackorderModeId { get; set; }
@@ -279,10 +279,10 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public bool AllowBackInStockSubscriptions { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.OrderMinimumQuantity")]
-        public int OrderMinimumQuantity { get; set; }
+        public decimal OrderMinimumQuantity { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.OrderMaximumQuantity")]
-        public int OrderMaximumQuantity { get; set; }
+        public decimal OrderMaximumQuantity { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.AllowedQuantities")]
         public string AllowedQuantities { get; set; }

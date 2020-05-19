@@ -556,7 +556,7 @@ namespace Nop.Plugin.Shipping.UPS.Services
 
                 //create packages according to item quantity
                 var package = CreatePackage(width, length, height, weight, insuranceAmount);
-                return Enumerable.Repeat(package, packageItem.GetQuantity());
+                return Enumerable.Repeat(package, (int)Math.Round(packageItem.GetQuantity(), MidpointRounding.AwayFromZero));
             });
         }
 

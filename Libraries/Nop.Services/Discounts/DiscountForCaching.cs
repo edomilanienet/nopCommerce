@@ -37,7 +37,7 @@ namespace Nop.Services.Discounts
 
         public int LimitationTimes { get; set; }
 
-        public int? MaximumDiscountedQuantity { get; set; }
+        public decimal? MaximumDiscountedQuantity { get; set; }
 
         public bool AppliedToSubCategories { get; set; }
 

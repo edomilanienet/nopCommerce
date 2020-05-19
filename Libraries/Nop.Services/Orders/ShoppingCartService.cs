@@ -242,7 +242,7 @@ namespace Nop.Services.Orders
             foreach (var cartItem in requiredShoppingCartItems)
             {
                 //at now we ignore quantities of required products and use 1
-                var requiredProductQuantity = 1;
+                decimal requiredProductQuantity = 1;
 
                 UpdateShoppingCartItem(customer, cartItem.Id, cartItem.AttributesXml, cartItem.CustomerEnteredPrice,
                     quantity: cartItem.Quantity - shoppingCartItem.Quantity * requiredProductQuantity, resetCheckoutData: false);
@@ -292,7 +292,7 @@ namespace Nop.Services.Orders
         /// <param name="shoppingCartItemId">Shopping cart identifier; pass 0 if it's a new item</param>
         /// <returns>Warnings</returns>
         public virtual IList<string> GetRequiredProductWarnings(Customer customer, ShoppingCartType shoppingCartType, Product product,
-            int storeId, int quantity, bool addRequiredProducts, int shoppingCartItemId)
+            int storeId, decimal quantity, bool addRequiredProducts, int shoppingCartItemId)
         {
             if (customer == null)
                 throw new ArgumentNullException(nameof(customer));
@@ -303,7 +303,7 @@ namespace Nop.Services.Orders
             var warnings = new List<string>();
 
             //at now we ignore quantities of required products and use 1
-            var requiredProductQuantity = 1;
+            decimal requiredProductQuantity = 1;
 
             //get customer shopping cart
             var cart = GetShoppingCart(customer, shoppingCartType, storeId);
@@ -376,7 +376,7 @@ namespace Nop.Services.Orders
         /// <returns>Warnings</returns>
         public virtual IList<string> GetStandardWarnings(Customer customer, ShoppingCartType shoppingCartType,
             Product product, string attributesXml, decimal customerEnteredPrice,
-            int quantity)
+            decimal quantity)
         {
             if (customer == null)
                 throw new ArgumentNullException(nameof(customer));
@@ -619,7 +619,7 @@ namespace Nop.Services.Orders
         public virtual IList<string> GetShoppingCartItemAttributeWarnings(Customer customer,
             ShoppingCartType shoppingCartType,
             Product product,
-            int quantity = 1,
+            decimal quantity = 1,
             string attributesXml = "",
             bool ignoreNonCombinableAttributes = false,
             bool ignoreConditionMet = false)
@@ -927,7 +927,7 @@ namespace Nop.Services.Orders
             Product product, int storeId,
             string attributesXml, decimal customerEnteredPrice,
             DateTime? rentalStartDate = null, DateTime? rentalEndDate = null,
-            int quantity = 1, bool addRequiredProducts = true, int shoppingCartItemId = 0,
+            decimal quantity = 1, bool addRequiredProducts = true, int shoppingCartItemId = 0,
             bool getStandardWarnings = true, bool getAttributesWarnings = true,
             bool getGiftCardWarnings = true, bool getRequiredProductWarnings = true,
             bool getRentalWarnings = true)
@@ -1143,7 +1143,7 @@ namespace Nop.Services.Orders
             ShoppingCartType shoppingCartType, int storeId, string attributesXml = null,
             decimal customerEnteredPrice = decimal.Zero,
             DateTime? rentalStartDate = null, DateTime? rentalEndDate = null,
-            int quantity = 1, bool addRequiredProducts = true)
+            decimal quantity = 1, bool addRequiredProducts = true)
         {
             if (customer == null)
                 throw new ArgumentNullException(nameof(customer));
@@ -1283,7 +1283,7 @@ namespace Nop.Services.Orders
             int shoppingCartItemId, string attributesXml,
             decimal customerEnteredPrice,
             DateTime? rentalStartDate = null, DateTime? rentalEndDate = null,
-            int quantity = 1, bool resetCheckoutData = true)
+            decimal quantity = 1, bool resetCheckoutData = true)
         {
             if (customer == null)
                 throw new ArgumentNullException(nameof(customer));

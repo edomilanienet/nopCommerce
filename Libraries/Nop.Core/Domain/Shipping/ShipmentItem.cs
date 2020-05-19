@@ -18,7 +18,7 @@ namespace Nop.Core.Domain.Shipping
         /// <summary>
         /// Gets or sets the quantity
         /// </summary>
-        public int Quantity { get; set; }
+        public decimal Quantity { get; set; }
 
         /// <summary>
         /// Gets or sets the warehouse identifier

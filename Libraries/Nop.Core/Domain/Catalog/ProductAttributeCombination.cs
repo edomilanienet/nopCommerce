@@ -18,7 +18,7 @@ namespace Nop.Core.Domain.Catalog
         /// <summary>
         /// Gets or sets the stock quantity
         /// </summary>
-        public int StockQuantity { get; set; }
+        public decimal StockQuantity { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether to allow orders when out of stock
@@ -48,7 +48,7 @@ namespace Nop.Core.Domain.Catalog
         /// <summary>
         /// Gets or sets the quantity when admin should be notified
         /// </summary>
-        public int NotifyAdminForQuantityBelow { get; set; }
+        public decimal NotifyAdminForQuantityBelow { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier of picture associated with this combination

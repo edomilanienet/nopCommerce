@@ -21,6 +21,6 @@ namespace Nop.Core.Domain.Orders
         /// <summary>
         /// Gets or sets the total quantity
         /// </summary>
-        public int TotalQuantity { get; set; }
+        public decimal TotalQuantity { get; set; }
     }
 }

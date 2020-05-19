@@ -26,7 +26,7 @@ namespace Nop.Services.Catalog
             Customer customer,
             decimal additionalCharge = decimal.Zero,
             bool includeDiscounts = true,
-            int quantity = 1);
+            decimal quantity = 1);
 
         /// <summary>
         /// Gets the final price
@@ -43,7 +43,7 @@ namespace Nop.Services.Catalog
             Customer customer,
             decimal additionalCharge,
             bool includeDiscounts,
-            int quantity,
+            decimal quantity,
             out decimal discountAmount,
             out List<DiscountForCaching> appliedDiscounts);
 
@@ -64,7 +64,7 @@ namespace Nop.Services.Catalog
             Customer customer,
             decimal additionalCharge,
             bool includeDiscounts,
-            int quantity,
+            decimal quantity,
             DateTime? rentalStartDate,
             DateTime? rentalEndDate,
             out decimal discountAmount,
@@ -110,7 +110,7 @@ namespace Nop.Services.Catalog
         decimal GetUnitPrice(Product product,
             Customer customer,
             ShoppingCartType shoppingCartType,
-            int quantity,
+            decimal quantity,
             string attributesXml,
             decimal customerEnteredPrice,
             DateTime? rentalStartDate, DateTime? rentalEndDate,
@@ -140,7 +140,7 @@ namespace Nop.Services.Catalog
             bool includeDiscounts,
             out decimal discountAmount,
             out List<DiscountForCaching> appliedDiscounts,
-            out int? maximumDiscountQty);
+            out decimal? maximumDiscountQty);
 
         /// <summary>
         /// Gets the product cost (one item)

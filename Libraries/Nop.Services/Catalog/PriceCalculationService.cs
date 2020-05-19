@@ -305,7 +305,7 @@ namespace Nop.Services.Catalog
             Customer customer,
             decimal additionalCharge = decimal.Zero,
             bool includeDiscounts = true,
-            int quantity = 1)
+            decimal quantity = 1)
         {
             return GetFinalPrice(product, customer, additionalCharge, includeDiscounts,
                 quantity, out _, out _);
@@ -326,7 +326,7 @@ namespace Nop.Services.Catalog
             Customer customer,
             decimal additionalCharge,
             bool includeDiscounts,
-            int quantity,
+            decimal quantity,
             out decimal discountAmount,
             out List<DiscountForCaching> appliedDiscounts)
         {
@@ -353,7 +353,7 @@ namespace Nop.Services.Catalog
             Customer customer,
             decimal additionalCharge,
             bool includeDiscounts,
-            int quantity,
+            decimal quantity,
             DateTime? rentalStartDate,
             DateTime? rentalEndDate,
             out decimal discountAmount,
@@ -382,7 +382,7 @@ namespace Nop.Services.Catalog
             decimal? overriddenProductPrice,
             decimal additionalCharge,
             bool includeDiscounts,
-            int quantity,
+            decimal quantity,
             DateTime? rentalStartDate,
             DateTime? rentalEndDate,
             out decimal discountAmount,
@@ -518,7 +518,7 @@ namespace Nop.Services.Catalog
         public virtual decimal GetUnitPrice(Product product,
             Customer customer,
             ShoppingCartType shoppingCartType,
-            int quantity,
+            decimal quantity,
             string attributesXml,
             decimal customerEnteredPrice,
             DateTime? rentalStartDate, DateTime? rentalEndDate,
@@ -570,7 +570,7 @@ namespace Nop.Services.Catalog
                 }
                 else
                 {
-                    int qty;
+                    decimal qty;
                     if (_shoppingCartSettings.GroupTierPricesForDistinctShoppingCartItems)
                     {
                         //the same products with distinct product attributes could be stored as distinct "ShoppingCartItem" records
@@ -632,7 +632,7 @@ namespace Nop.Services.Catalog
             bool includeDiscounts,
             out decimal discountAmount,
             out List<DiscountForCaching> appliedDiscounts,
-            out int? maximumDiscountQty)
+            out decimal? maximumDiscountQty)
         {
             if (shoppingCartItem == null)
                 throw new ArgumentNullException(nameof(shoppingCartItem));

@@ -132,7 +132,7 @@ namespace Nop.Web.Models.Catalog
 
             //qty
             [NopResourceDisplayName("Products.Qty")]
-            public int EnteredQuantity { get; set; }
+            public decimal EnteredQuantity { get; set; }
             public string MinimumQuantityNotification { get; set; }
             public List<SelectListItem> AllowedQuantities { get; set; }
 
@@ -222,7 +222,7 @@ namespace Nop.Web.Models.Catalog
         {
             public string Price { get; set; }
 
-            public int Quantity { get; set; }
+            public decimal Quantity { get; set; }
         }
 
         public partial class ProductAttributeModel : BaseNopEntityModel

@@ -164,35 +164,35 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="orderItem">Order item</param>
         /// <returns>Total number of items in all shipments</returns>
-        int GetTotalNumberOfItemsInAllShipment(OrderItem orderItem);
+        decimal GetTotalNumberOfItemsInAllShipment(OrderItem orderItem);
 
         /// <summary>
         /// Gets a total number of already items which can be added to new shipments
         /// </summary>
         /// <param name="orderItem">Order item</param>
         /// <returns>Total number of already delivered items which can be added to new shipments</returns>
-        int GetTotalNumberOfItemsCanBeAddedToShipment(OrderItem orderItem);
+        decimal GetTotalNumberOfItemsCanBeAddedToShipment(OrderItem orderItem);
 
         /// <summary>
         /// Gets a total number of not yet shipped items (but added to shipments)
         /// </summary>
         /// <param name="orderItem">Order item</param>
         /// <returns>Total number of not yet shipped items (but added to shipments)</returns>
-        int GetTotalNumberOfNotYetShippedItems(OrderItem orderItem);
+        decimal GetTotalNumberOfNotYetShippedItems(OrderItem orderItem);
 
         /// <summary>
         /// Gets a total number of already shipped items
         /// </summary>
         /// <param name="orderItem">Order item</param>
         /// <returns>Total number of already shipped items</returns>
-        int GetTotalNumberOfShippedItems(OrderItem orderItem);
+        decimal GetTotalNumberOfShippedItems(OrderItem orderItem);
 
         /// <summary>
         /// Gets a total number of already delivered items
         /// </summary>
         /// <param name="orderItem">Order  item</param>
         /// <returns>Total number of already delivered items</returns>
-        int GetTotalNumberOfDeliveredItems(OrderItem orderItem);
+        decimal GetTotalNumberOfDeliveredItems(OrderItem orderItem);
 
         #endregion
 

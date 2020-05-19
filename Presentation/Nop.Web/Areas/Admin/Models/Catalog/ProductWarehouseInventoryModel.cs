@@ -20,13 +20,13 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public bool WarehouseUsed { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.ProductWarehouseInventory.Fields.StockQuantity")]
-        public int StockQuantity { get; set; }
+        public decimal StockQuantity { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.ProductWarehouseInventory.Fields.ReservedQuantity")]
-        public int ReservedQuantity { get; set; }
+        public decimal ReservedQuantity { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.ProductWarehouseInventory.Fields.PlannedQuantity")]
-        public int PlannedQuantity { get; set; }
+        public decimal PlannedQuantity { get; set; }
 
         #endregion
     }

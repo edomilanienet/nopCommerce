@@ -484,12 +484,12 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="orderItem">Order item</param>
         /// <returns>Total number of items in all shipments</returns>
-        public virtual int GetTotalNumberOfItemsInAllShipment(OrderItem orderItem)
+        public virtual decimal GetTotalNumberOfItemsInAllShipment(OrderItem orderItem)
         {
             if (orderItem == null)
                 throw new ArgumentNullException(nameof(orderItem));
 
-            var totalInShipments = 0;
+            decimal totalInShipments = 0;
             var shipments = orderItem.Order.Shipments.ToList();
             for (var i = 0; i < shipments.Count; i++)
             {
@@ -510,7 +510,7 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="orderItem">Order item</param>
         /// <returns>Total number of already delivered items which can be added to new shipments</returns>
-        public virtual int GetTotalNumberOfItemsCanBeAddedToShipment(OrderItem orderItem)
+        public virtual decimal GetTotalNumberOfItemsCanBeAddedToShipment(OrderItem orderItem)
         {
             if (orderItem == null)
                 throw new ArgumentNullException(nameof(orderItem));
@@ -530,12 +530,12 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="orderItem">Order item</param>
         /// <returns>Total number of not yet shipped items (but added to shipments)</returns>
-        public virtual int GetTotalNumberOfNotYetShippedItems(OrderItem orderItem)
+        public virtual decimal GetTotalNumberOfNotYetShippedItems(OrderItem orderItem)
         {
             if (orderItem == null)
                 throw new ArgumentNullException(nameof(orderItem));
 
-            var result = 0;
+            decimal result = 0;
             var shipments = orderItem.Order.Shipments.ToList();
             for (var i = 0; i < shipments.Count; i++)
             {
@@ -560,12 +560,12 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="orderItem">Order item</param>
         /// <returns>Total number of already shipped items</returns>
-        public virtual int GetTotalNumberOfShippedItems(OrderItem orderItem)
+        public virtual decimal GetTotalNumberOfShippedItems(OrderItem orderItem)
         {
             if (orderItem == null)
                 throw new ArgumentNullException(nameof(orderItem));
 
-            var result = 0;
+            decimal result = 0;
             var shipments = orderItem.Order.Shipments.ToList();
             for (var i = 0; i < shipments.Count; i++)
             {
@@ -590,12 +590,12 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="orderItem">Order  item</param>
         /// <returns>Total number of already delivered items</returns>
-        public virtual int GetTotalNumberOfDeliveredItems(OrderItem orderItem)
+        public virtual decimal GetTotalNumberOfDeliveredItems(OrderItem orderItem)
         {
             if (orderItem == null)
                 throw new ArgumentNullException(nameof(orderItem));
 
-            var result = 0;
+            decimal result = 0;
             var shipments = orderItem.Order.Shipments.ToList();
             for (var i = 0; i < shipments.Count; i++)
             {

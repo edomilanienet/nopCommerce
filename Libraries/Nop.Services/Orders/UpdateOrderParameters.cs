@@ -39,7 +39,7 @@ namespace Nop.Services.Orders
         /// <summary>
         /// The quantity
         /// </summary>
-        public int Quantity { get; set; }
+        public decimal Quantity { get; set; }
 
         /// <summary>
         /// The amount of discount with tax

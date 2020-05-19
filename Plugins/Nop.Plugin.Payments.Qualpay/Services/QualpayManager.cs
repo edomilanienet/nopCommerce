@@ -300,7 +300,7 @@ namespace Nop.Plugin.Payments.Qualpay.Services
             var taxAmount = _orderTotalCalculationService.GetTaxTotal(shoppingCart, shippingRateComputationMethods);
 
             //define function to create item
-            Domain.LineItem createItem(decimal price, string description, string productCode, int quantity = 1)
+            Domain.LineItem createItem(decimal price, string description, string productCode, decimal quantity = 1)
             {
                 return new Domain.LineItem
                 {
@@ -355,7 +355,7 @@ namespace Nop.Plugin.Payments.Qualpay.Services
             }
 
             //create transaction item for all discounts
-            var amountDifference = orderTotal - Convert.ToDecimal(items.Sum(lineItem => lineItem.UnitPrice * lineItem.Quantity).Value) - taxAmount;
+            var amountDifference = orderTotal - Convert.ToDecimal(items.Sum(lineItem => (decimal?)lineItem.UnitPrice * lineItem.Quantity).Value) - taxAmount;
             if (amountDifference < decimal.Zero)
                 items.Add(createItem(amountDifference, "Discount amount", "discounts"));
 

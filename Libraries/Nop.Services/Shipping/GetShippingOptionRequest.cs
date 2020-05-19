@@ -112,7 +112,7 @@ namespace Nop.Services.Shipping
             /// Get quantity
             /// </summary>
             /// <returns></returns>
-            public int GetQuantity()
+            public decimal GetQuantity()
             {
                 if (OverriddenQuantity.HasValue)
                     return OverriddenQuantity.Value;

@@ -276,7 +276,7 @@ namespace Nop.Services.Shipping
         /// <param name="ignoreShipped">Ignore already shipped shipments</param>
         /// <param name="ignoreDelivered">Ignore already delivered shipments</param>
         /// <returns>Quantity</returns>
-        public virtual int GetQuantityInShipments(Product product, int warehouseId,
+        public virtual decimal GetQuantityInShipments(Product product, int warehouseId,
             bool ignoreShipped, bool ignoreDelivered)
         {
             if (product == null)
@@ -308,7 +308,7 @@ namespace Nop.Services.Shipping
                     select si;
 
             //some null validation
-            var result = Convert.ToInt32(query.Sum(si => (int?)si.Quantity));
+            var result = Convert.ToDecimal(query.Sum(si => (decimal?)si.Quantity));
             return result;
         }
 

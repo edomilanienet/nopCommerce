@@ -306,7 +306,7 @@ namespace Nop.Services.Catalog
         /// </summary>
         /// <param name="product">Product</param>
         /// <returns>Result</returns>
-        int[] ParseAllowedQuantities(Product product);
+        decimal[] ParseAllowedQuantities(Product product);
 
         /// <summary>
         /// Get total quantity
@@ -321,7 +321,7 @@ namespace Nop.Services.Catalog
         /// Used only with "multiple warehouses" enabled.
         /// </param>
         /// <returns>Result</returns>
-        int GetTotalStockQuantity(Product product, bool useReservedQuantity = true, int warehouseId = 0);
+        decimal GetTotalStockQuantity(Product product, bool useReservedQuantity = true, int warehouseId = 0);
 
         /// <summary>
         /// Get number of rental periods (price ratio)
@@ -390,21 +390,21 @@ namespace Nop.Services.Catalog
         /// <param name="quantityToChange">Quantity to increase or decrease</param>
         /// <param name="attributesXml">Attributes in XML format</param>
         /// <param name="message">Message for the stock quantity history</param>
-        void AdjustInventory(Product product, int quantityToChange, string attributesXml = "", string message = "");
+        void AdjustInventory(Product product, decimal quantityToChange, string attributesXml = "", string message = "");
 
         /// <summary>
         /// Reserve the given quantity in the warehouses.
         /// </summary>
         /// <param name="product">Product</param>
         /// <param name="quantity">Quantity, must be negative</param>
-        void ReserveInventory(Product product, int quantity);
+        void ReserveInventory(Product product, decimal quantity);
 
         /// <summary>
         /// Unblocks the given quantity reserved items in the warehouses
         /// </summary>
         /// <param name="product">Product</param>
         /// <param name="quantity">Quantity, must be positive</param>
-        void UnblockReservedInventory(Product product, int quantity);
+        void UnblockReservedInventory(Product product, decimal quantity);
 
         /// <summary>
         /// Book the reserved quantity
@@ -413,7 +413,7 @@ namespace Nop.Services.Catalog
         /// <param name="warehouseId">Warehouse identifier</param>
         /// <param name="quantity">Quantity, must be negative</param>
         /// <param name="message">Message for the stock quantity history</param>
-        void BookReservedInventory(Product product, int warehouseId, int quantity, string message = "");
+        void BookReservedInventory(Product product, int warehouseId, decimal quantity, string message = "");
 
         /// <summary>
         /// Reverse booked inventory (if acceptable)
@@ -422,7 +422,7 @@ namespace Nop.Services.Catalog
         /// <param name="shipmentItem">Shipment item</param>
         /// <returns>Quantity reversed</returns>
         /// <param name="message">Message for the stock quantity history</param>
-        int ReverseBookedInventory(Product product, ShipmentItem shipmentItem, string message = "");
+        decimal ReverseBookedInventory(Product product, ShipmentItem shipmentItem, string message = "");
 
         #endregion
 
@@ -569,7 +569,7 @@ namespace Nop.Services.Catalog
         /// <param name="storeId">Store identifier</param>
         /// <param name="quantity">Quantity</param>
         /// <returns>Tier price</returns>
-        TierPrice GetPreferredTierPrice(Product product, Customer customer, int storeId, int quantity);
+        TierPrice GetPreferredTierPrice(Product product, Customer customer, int storeId, decimal quantity);
 
         #endregion
 
@@ -687,7 +687,7 @@ namespace Nop.Services.Catalog
         /// <param name="warehouseId">Warehouse identifier</param>
         /// <param name="message">Message</param>
         /// <param name="combinationId">Product attribute combination identifier</param>
-        void AddStockQuantityHistoryEntry(Product product, int quantityAdjustment, int stockQuantity,
+        void AddStockQuantityHistoryEntry(Product product, decimal quantityAdjustment, decimal stockQuantity,
             int warehouseId = 0, string message = "", int? combinationId = null);
 
         /// <summary>

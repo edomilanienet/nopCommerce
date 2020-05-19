@@ -1445,7 +1445,7 @@ namespace Nop.Services.ExportImport
                                 product.WarehouseId = property.IntValue;
                                 break;
                             case "StockQuantity":
-                                product.StockQuantity = property.IntValue;
+                                product.StockQuantity = property.DecimalValue;
                                 break;
                             case "DisplayStockAvailability":
                                 product.DisplayStockAvailability = property.BooleanValue;
@@ -1454,13 +1454,13 @@ namespace Nop.Services.ExportImport
                                 product.DisplayStockQuantity = property.BooleanValue;
                                 break;
                             case "MinStockQuantity":
-                                product.MinStockQuantity = property.IntValue;
+                                product.MinStockQuantity = property.DecimalValue;
                                 break;
                             case "LowStockActivity":
                                 product.LowStockActivityId = property.IntValue;
                                 break;
                             case "NotifyAdminForQuantityBelow":
-                                product.NotifyAdminForQuantityBelow = property.IntValue;
+                                product.NotifyAdminForQuantityBelow = property.DecimalValue;
                                 break;
                             case "BackorderMode":
                                 product.BackorderModeId = property.IntValue;
@@ -1469,10 +1469,10 @@ namespace Nop.Services.ExportImport
                                 product.AllowBackInStockSubscriptions = property.BooleanValue;
                                 break;
                             case "OrderMinimumQuantity":
-                                product.OrderMinimumQuantity = property.IntValue;
+                                product.OrderMinimumQuantity = property.DecimalValue;
                                 break;
                             case "OrderMaximumQuantity":
-                                product.OrderMaximumQuantity = property.IntValue;
+                                product.OrderMaximumQuantity = property.DecimalValue;
                                 break;
                             case "AllowedQuantities":
                                 product.AllowedQuantities = property.StringValue;

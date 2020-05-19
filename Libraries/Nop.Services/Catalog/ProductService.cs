@@ -1075,12 +1075,12 @@ namespace Nop.Services.Catalog
         /// </summary>
         /// <param name="product">Product</param>
         /// <returns>Result</returns>
-        public virtual int[] ParseAllowedQuantities(Product product)
+        public virtual decimal[] ParseAllowedQuantities(Product product)
         {
             if (product == null)
                 throw new ArgumentNullException(nameof(product));
 
-            var result = new List<int>();
+            var result = new List<decimal>();
             if (!string.IsNullOrWhiteSpace(product.AllowedQuantities))
             {
                 product.AllowedQuantities
@@ -1088,7 +1088,7 @@ namespace Nop.Services.Catalog
                     .ToList()
                     .ForEach(qtyStr =>
                     {
-                        if (int.TryParse(qtyStr.Trim(), out var qty))
+                        if (decimal.TryParse(qtyStr.Trim(), out var qty))
                         {
                             result.Add(qty);
                         }
@@ -1111,7 +1111,7 @@ namespace Nop.Services.Catalog
         /// Used only with "multiple warehouses" enabled.
         /// </param>
         /// <returns>Result</returns>
-        public virtual int GetTotalStockQuantity(Product product, bool useReservedQuantity = true, int warehouseId = 0)
+        public virtual decimal GetTotalStockQuantity(Product product, bool useReservedQuantity = true, int warehouseId = 0)
         {
             if (product == null)
                 throw new ArgumentNullException(nameof(product));
@@ -1332,7 +1332,7 @@ namespace Nop.Services.Catalog
         /// <param name="quantityToChange">Quantity to increase or decrease</param>
         /// <param name="attributesXml">Attributes in XML format</param>
         /// <param name="message">Message for the stock quantity history</param>
-        public virtual void AdjustInventory(Product product, int quantityToChange, string attributesXml = "", string message = "")
+        public virtual void AdjustInventory(Product product, decimal quantityToChange, string attributesXml = "", string message = "")
         {
             if (product == null)
                 throw new ArgumentNullException(nameof(product));
@@ -1468,7 +1468,7 @@ namespace Nop.Services.Catalog
         /// </summary>
         /// <param name="product">Product</param>
         /// <param name="quantity">Quantity, must be negative</param>
-        public virtual void ReserveInventory(Product product, int quantity)
+        public virtual void ReserveInventory(Product product, decimal quantity)
         {
             if (product == null)
                 throw new ArgumentNullException(nameof(product));
@@ -1510,7 +1510,7 @@ namespace Nop.Services.Catalog
         /// </summary>
         /// <param name="product">Product</param>
         /// <param name="quantity">Quantity, must be positive</param>
-        public virtual void UnblockReservedInventory(Product product, int quantity)
+        public virtual void UnblockReservedInventory(Product product, decimal quantity)
         {
             if (product == null)
                 throw new ArgumentNullException(nameof(product));
@@ -1554,7 +1554,7 @@ namespace Nop.Services.Catalog
         /// <param name="warehouseId">Warehouse identifier</param>
         /// <param name="quantity">Quantity, must be negative</param>
         /// <param name="message">Message for the stock quantity history</param>
-        public virtual void BookReservedInventory(Product product, int warehouseId, int quantity, string message = "")
+        public virtual void BookReservedInventory(Product product, int warehouseId, decimal quantity, string message = "")
         {
             if (product == null)
                 throw new ArgumentNullException(nameof(product));
@@ -1589,7 +1589,7 @@ namespace Nop.Services.Catalog
         /// <param name="shipmentItem">Shipment item</param>
         /// <param name="message">Message for the stock quantity history</param>
         /// <returns>Quantity reversed</returns>
-        public virtual int ReverseBookedInventory(Product product, ShipmentItem shipmentItem, string message = "")
+        public virtual decimal ReverseBookedInventory(Product product, ShipmentItem shipmentItem, string message = "")
         {
             if (product == null)
                 throw new ArgumentNullException(nameof(product));
@@ -1613,7 +1613,7 @@ namespace Nop.Services.Catalog
             if (!shipment.ShippedDateUtc.HasValue)
                 return 0;
 
-            var qty = shipmentItem.Quantity;
+            decimal qty = shipmentItem.Quantity;
 
             pwi.StockQuantity += qty;
             pwi.ReservedQuantity += qty;
@@ -1957,7 +1957,7 @@ namespace Nop.Services.Catalog
         /// <param name="storeId">Store identifier</param>
         /// <param name="quantity">Quantity</param>
         /// <returns>Tier price</returns>
-        public virtual TierPrice GetPreferredTierPrice(Product product, Customer customer, int storeId, int quantity)
+        public virtual TierPrice GetPreferredTierPrice(Product product, Customer customer, int storeId, decimal quantity)
         {
             if (!product.HasTierPrices)
                 return null;
@@ -2234,7 +2234,7 @@ namespace Nop.Services.Catalog
         /// <param name="warehouseId">Warehouse identifier</param>
         /// <param name="message">Message</param>
         /// <param name="combinationId">Product attribute combination identifier</param>
-        public virtual void AddStockQuantityHistoryEntry(Product product, int quantityAdjustment, int stockQuantity,
+        public virtual void AddStockQuantityHistoryEntry(Product product, decimal quantityAdjustment, decimal stockQuantity,
             int warehouseId = 0, string message = "", int? combinationId = null)
         {
             if (product == null)

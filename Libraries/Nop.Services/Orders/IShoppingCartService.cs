@@ -48,7 +48,7 @@ namespace Nop.Services.Orders
         /// <param name="shoppingCartItemId">Shopping cart identifier; pass 0 if it's a new item</param>
         /// <returns>Warnings</returns>
         IList<string> GetRequiredProductWarnings(Customer customer, ShoppingCartType shoppingCartType, Product product,
-            int storeId, int quantity, bool addRequiredProducts, int shoppingCartItemId);
+            int storeId, decimal quantity, bool addRequiredProducts, int shoppingCartItemId);
 
         /// <summary>
         /// Validates a product for standard properties
@@ -62,7 +62,7 @@ namespace Nop.Services.Orders
         /// <returns>Warnings</returns>
         IList<string> GetStandardWarnings(Customer customer, ShoppingCartType shoppingCartType,
             Product product, string attributesXml,
-            decimal customerEnteredPrice, int quantity);
+            decimal customerEnteredPrice, decimal quantity);
 
         /// <summary>
         /// Gets shopping cart
@@ -91,7 +91,7 @@ namespace Nop.Services.Orders
         IList<string> GetShoppingCartItemAttributeWarnings(Customer customer,
             ShoppingCartType shoppingCartType,
             Product product,
-            int quantity = 1,
+            decimal quantity = 1,
             string attributesXml = "",
             bool ignoreNonCombinableAttributes = false,
             bool ignoreConditionMet = false);
@@ -140,7 +140,7 @@ namespace Nop.Services.Orders
             Product product, int storeId,
             string attributesXml, decimal customerEnteredPrice,
             DateTime? rentalStartDate = null, DateTime? rentalEndDate = null,
-            int quantity = 1, bool addRequiredProducts = true, int shoppingCartItemId = 0,
+            decimal quantity = 1, bool addRequiredProducts = true, int shoppingCartItemId = 0,
             bool getStandardWarnings = true, bool getAttributesWarnings = true,
             bool getGiftCardWarnings = true, bool getRequiredProductWarnings = true,
             bool getRentalWarnings = true);
@@ -192,7 +192,7 @@ namespace Nop.Services.Orders
             ShoppingCartType shoppingCartType, int storeId, string attributesXml = null,
             decimal customerEnteredPrice = decimal.Zero,
             DateTime? rentalStartDate = null, DateTime? rentalEndDate = null,
-            int quantity = 1, bool addRequiredProducts = true);
+            decimal quantity = 1, bool addRequiredProducts = true);
 
         /// <summary>
         /// Updates the shopping cart item
@@ -210,7 +210,7 @@ namespace Nop.Services.Orders
             int shoppingCartItemId, string attributesXml,
             decimal customerEnteredPrice,
             DateTime? rentalStartDate = null, DateTime? rentalEndDate = null,
-            int quantity = 1, bool resetCheckoutData = true);
+            decimal quantity = 1, bool resetCheckoutData = true);
 
         /// <summary>
         /// Migrate shopping cart

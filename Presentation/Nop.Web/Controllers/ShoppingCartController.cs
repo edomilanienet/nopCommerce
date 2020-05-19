@@ -500,7 +500,7 @@ namespace Nop.Web.Controllers
 
         protected virtual void SaveItem(ShoppingCartItem updatecartitem, List<string> addToCartWarnings, Product product,
            ShoppingCartType cartType, string attributes, decimal customerEnteredPriceConverted, DateTime? rentalStartDate,
-           DateTime? rentalEndDate, int quantity)
+           DateTime? rentalEndDate, decimal quantity)
         {
             if (updatecartitem == null)
             {
@@ -630,7 +630,7 @@ namespace Nop.Web.Controllers
         //currently we use this method on catalog pages (category/manufacturer/etc)
         [HttpPost]
         public virtual IActionResult AddProductToCart_Catalog(int productId, int shoppingCartTypeId,
-            int quantity, bool forceredirection = false)
+            decimal quantity, bool forceredirection = false)
         {
             var cartType = (ShoppingCartType)shoppingCartTypeId;
 
@@ -1315,7 +1315,7 @@ namespace Nop.Web.Controllers
             var itemsWithNewQuantity = cart.Select(item => new
             {
                 //try to get a new quantity for the item, set 0 for items to remove
-                NewQuantity = itemIdsToRemove.Contains(item.Id) ? 0 : int.TryParse(form[$"itemquantity{item.Id}"], out int quantity) ? quantity : item.Quantity,
+                NewQuantity = itemIdsToRemove.Contains(item.Id) ? 0 : decimal.TryParse(form[$"itemquantity{item.Id}"], out decimal quantity) ? quantity : item.Quantity,
                 Item = item
             }).Where(item => item.NewQuantity != item.Item.Quantity);
 
