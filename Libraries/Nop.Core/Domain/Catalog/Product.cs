@@ -729,5 +729,10 @@ namespace Nop.Core.Domain.Catalog
             get => _productWarehouseInventory ?? (_productWarehouseInventory = new List<ProductWarehouseInventory>());
             protected set => _productWarehouseInventory = value;
         }
+
+        /// <summary>
+        /// 19/05/2020 - Indico la possibilità di ordinare anche quantità decimali
+        /// </summary>
+        public bool IsDecimalQuantity { get; set; }
     }
 }

@@ -72,6 +72,15 @@
                     <span asp-validation-for="Price"></span>
                 </div>
             </div>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <nop-label asp-for="IsDecimalQuantity" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="IsDecimalQuantity" />
+                    <span asp-validation-for="IsDecimalQuantity"></span>
+                </div>
+            </div>
             <div class="form-group @(Model.ProductEditorSettingsModel.OldPrice ? null : "advanced-setting")">
                 <div class="col-md-3">
                     <nop-label asp-for="OldPrice" />

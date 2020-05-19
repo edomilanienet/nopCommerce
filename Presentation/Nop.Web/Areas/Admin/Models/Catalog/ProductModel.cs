@@ -465,6 +465,10 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
 
         public ProductAttributeCombinationSearchModel ProductAttributeCombinationSearchModel { get; set; }
 
+        //19/05/2020 - Indico la possibilità di ordinare anche quantità decimali
+        [NopResourceDisplayName("Admin.Catalog.Products.Fields.IsDecimalQuantity")]
+        public bool IsDecimalQuantity { get; set; }
+
         #endregion
     }
 

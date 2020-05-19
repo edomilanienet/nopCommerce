@@ -1,0 +1,1 @@
+ALTER TABLE [dbo].[Product] ADD IsDecimalQuantity BIT NOT NULL DEFAULT (0)
